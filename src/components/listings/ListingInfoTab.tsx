@@ -19,10 +19,9 @@ export default function ListingInfoTab() {
   const [activeImage, setActiveImage] = useState(0);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[160px_1fr_1fr] gap-6 lg:items-stretch">
+    <div className="grid grid-cols-1 lg:grid-cols-[160px_1fr_1fr] gap-6 lg:items-start">
       {/* Thumbnails — same height as main image, each thumb takes equal share */}
-      <div className="hidden lg:flex flex-col gap-2 h-[460px]">
-        {" "}
+      <div className="hidden lg:flex flex-col gap-2 h-[520px]">
         {mockListing.images.map((img, i) => (
           <button
             key={i}
@@ -43,7 +42,7 @@ export default function ListingInfoTab() {
       </div>
 
       {/* Main image */}
-      <div className="overflow-hidden bg-gray-100 h-[460px]">
+      <div className="overflow-hidden bg-gray-100 h-[520px]">
         <img
           src={mockListing.images[activeImage]}
           alt={mockListing.name}
