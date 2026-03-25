@@ -1,3 +1,5 @@
+import type { AdoptionTimelineEntry } from "../types/adoption";
+
 export interface AdoptionRating {
   rating: number;
   feedback: string;
@@ -15,5 +17,13 @@ export const adoptionService = {
 
     // Mock successful submission
     return Promise.resolve();
+  },
+
+  async getTimeline(adoptionId: string): Promise<AdoptionTimelineEntry[]> {
+    const response = await fetch(`/api/adoption/${adoptionId}/timeline`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch timeline");
+    }
+    return response.json();
   },
 };
