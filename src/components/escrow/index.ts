@@ -4,5 +4,6 @@ export * from "./EscrowFundedBanner";
 export * from "./EscrowProgressStepper";
 export * from "./EscrowStatusBadge";
 export * from "./EscrowStatusCard";
-export * from "./EscrowSettlementCard";
+export * from "./EscrowTimelinePanel";
 export * from "./StellarTxLink";
+export * from "./SplitOutcomeChart";
