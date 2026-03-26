@@ -17,6 +17,10 @@ import ListingDetailsPage from "./pages/ListingDetailsPage";
 import { SettlementSummaryPage } from "./pages/SettlementSummaryPage";
 import ModalPreview from "./pages/ModalPreview";
 import StatusPollingDemo from "./pages/StatusPollingDemo";
+<<<<<<< feat/custody-timeline-page
+import CustodyTimelinePage from "./pages/CustodyTimelinePage";
+=======
+>>>>>>> main
 
 function App() {
 
@@ -41,6 +45,9 @@ function App() {
         <Route path="/my-listings/:id" element={<ListingDetailsPage />} />
         <Route path="/notifications" element={<NotificationPage />} />
         <Route path="/adoption/:adoptionId/settlement" element={<SettlementSummaryPage />} />
+
+        {/* Custody Routes */}
+        <Route path="/custody/:custodyId/timeline" element={<CustodyTimelinePage />} />
 
         {/* Preview Routes */}
         <Route path="/preview-modal" element={<ModalPreview />} />
