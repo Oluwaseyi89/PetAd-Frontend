@@ -23,7 +23,6 @@ import CustodyTimelinePage from "./pages/CustodyTimelinePage";
 import AdminApprovalQueuePage from "./pages/AdminApprovalQueuePage";
 
 function App() {
-
   return (
     <Routes>
       {/* Auth Routes - No Navbar/Footer */}
@@ -34,29 +33,49 @@ function App() {
       <Route path="/forgot-password" element={<ForgetPasswordPage />} />
 
       {/* Main App Routes - With Navbar/Footer */}
-      <Route path="/home" element={<MainLayout><HomePage /></MainLayout>} />
-      <Route path="/profile" element={<MainLayout><ProfilePage /></MainLayout>} />
-      <Route path="/favourites" element={<MainLayout><FavouritePage /></MainLayout>} />
-      <Route path="/interests" element={<MainLayout><InterestPage /></MainLayout>} />
-      <Route path="/listings" element={<MainLayout><ListingsPage /></MainLayout>} />
-      <Route path="/listings/:id" element={<MainLayout><PetListingDetailsPage /></MainLayout>} />
-      <Route path="/list-for-adoption" element={<MainLayout><EditAdoptionListing /></MainLayout>} />
-      <Route path="/my-listings/:id" element={<MainLayout><ListingDetailsPage /></MainLayout>} />
-      <Route path="/notifications" element={<MainLayout><NotificationPage /></MainLayout>} />
-      <Route path="/notification-preferences" element={<MainLayout><NotificationPreferencesPage /></MainLayout>} />
-      <Route path="/adoption/:adoptionId/settlement" element={<MainLayout><SettlementSummaryPage /></MainLayout>} />
-      <Route path="/adoption/:adoptionId/timeline" element={<MainLayout><AdoptionTimelinePage /></MainLayout>} />
+      <Route element={<MainLayout />}>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/favourites" element={<FavouritePage />} />
+        <Route path="/interests" element={<InterestPage />} />
+        <Route path="/listings" element={<ListingsPage />} />
+        <Route path="/listings/:id" element={<PetListingDetailsPage />} />
+        <Route path="/list-for-adoption" element={<EditAdoptionListing />} />
+        <Route path="/my-listings/:id" element={<ListingDetailsPage />} />
+        <Route path="/notifications" element={<NotificationPage />} />
+        <Route
+          path="/notification-preferences"
+          element={<NotificationPreferencesPage />}
+        />
+        <Route
+          path="/adoption/:adoptionId/settlement"
+          element={<SettlementSummaryPage />}
+        />
+        <Route
+          path="/adoption/:adoptionId/timeline"
+          element={<AdoptionTimelinePage />}
+        />
 
-      {/* Admin Approvals */}
-      <Route path="/admin/approvals" element={<MainLayout><AdminApprovalQueuePage /></MainLayout>} />
+        {/* Admin Approvals */}
+        <Route
+          path="/admin/approvals"
+          element={<AdminApprovalQueuePage />}
+        />
 
-      {/* Custody Routes */}
-      <Route path="/custody/:custodyId/timeline" element={<MainLayout><CustodyTimelinePage /></MainLayout>} />
+        {/* Custody Routes */}
+        <Route
+          path="/custody/:custodyId/timeline"
+          element={<CustodyTimelinePage />}
+        />
 
-      {/* Preview Routes */}
-      <Route path="/preview-modal" element={<MainLayout><ModalPreview /></MainLayout>} />
-      <Route path="/adoption-completion-demo" element={<MainLayout><AdoptionCompletionDemo /></MainLayout>} />
-      <Route path="/status-polling-demo" element={<MainLayout><StatusPollingDemo /></MainLayout>} />
+        {/* Preview Routes */}
+        <Route path="/preview-modal" element={<ModalPreview />} />
+        <Route
+          path="/adoption-completion-demo"
+          element={<AdoptionCompletionDemo />}
+        />
+        <Route path="/status-polling-demo" element={<StatusPollingDemo />} />
+      </Route>
     </Routes>
   );
 }
