@@ -26,4 +26,16 @@ export const custodyHandlers = [
       { status: 404 }
     );
   }),
+
+  http.get("/api/custody/:id/timeline", async () => {
+    await delay(100);
+    return HttpResponse.json([
+      {
+        type: "STATUS_CHANGE",
+        label: "Custody Started",
+        timestamp: new Date().toISOString(),
+        toStatus: "CUSTODY_ACTIVE"
+      }
+    ]);
+  }),
 ];

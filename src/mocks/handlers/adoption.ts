@@ -76,4 +76,15 @@ export const adoptionHandlers = [
 
     return new HttpResponse(null, { status: 204 });
   }),
+
+  // PATCH /api/adoption/:id/status
+  http.patch("/api/adoption/:id/status", async ({ params, request }) => {
+    await delay(100);
+    const body = await request.json() as { status: string };
+    return HttpResponse.json({
+      id: params.id,
+      toStatus: body.status,
+      timestamp: new Date().toISOString()
+    });
+  }),
 ];

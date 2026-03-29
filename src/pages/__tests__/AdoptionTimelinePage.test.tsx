@@ -1,5 +1,6 @@
 
 import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom/vitest";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import AdoptionTimelinePage from "../AdoptionTimelinePage";
@@ -10,9 +11,10 @@ vi.mock("../../hooks/useAdoptionTimeline", () => ({
 }));
 
 // Mock the TimelineEntry UI component to simplify testing the page's structure and logic
+import type { AdoptionTimelineEntry } from "../../types/adoption";
+
 vi.mock("../../components/ui/TimelineEntry", () => ({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  TimelineEntry: ({ entry }: { entry: any }) => (
+  TimelineEntry: ({ entry }: { entry: AdoptionTimelineEntry }) => (
     <div data-testid="mock-timeline-entry">{entry.actor} - {entry.toStatus}</div>
   ),
 }));
@@ -82,8 +84,7 @@ describe("AdoptionTimelinePage", () => {
 
   it("renders entries grouped by date", () => {
     vi.mocked(useAdoptionTimeline).mockReturnValue({
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      entries: mockEntries as any,
+      entries: mockEntries as AdoptionTimelineEntry[],
       isLoading: false,
       isError: false,
     });
