@@ -269,7 +269,7 @@ describe("ApiClient", () => {
 		});
 
 		it("re-throws existing ApiErrors without wrapping them", async () => {
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	 
 			const original: any = new Error("Already an api error");
 			original.name = "ApiError";
 			original.status = 422;
