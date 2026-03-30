@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { DisputeSLABadge } from '../DisputeSLABadge';
-import React from 'react';
 
 describe('DisputeSLABadge', () => {
   // Use a fixed baseline date: Friday, March 27, 2026, 12:00:00 PM
