@@ -7,6 +7,8 @@ import { AdoptionCompleteButton } from "../components/escrow/AdoptionCompleteBut
 import { StellarTxLink } from "../components/escrow/StellarTxLink";
 import { Skeleton } from "../components/ui/Skeleton";
 import { EmptyState } from "../components/ui/emptyState";
+import { ApprovalStatusWidget } from "../components/approval/ApprovalStatusWidget";
+import { useEscrowStatus } from "../lib/hooks/useEscrowStatus";
 import { 
   type EscrowStatus, 
   type SettlementSummaryPageProps,
@@ -60,6 +62,12 @@ export function SettlementSummaryPage({
   const { data, isLoading: hookLoading, isError: hookError } = useSettlementSummary(
     propSummary ? "" : (adoptionId ?? ""),
   );
+
+  const escrowId = propSummary?.escrow.escrowId || adoptionId;
+  const { 
+    data: statusData, 
+    isLoading: statusLoading 
+  } = useEscrowStatus(escrowId, { enabled: !!escrowId });
 
   const isLoading = propSummary ? false : hookLoading;
   const isError = propSummary ? false : hookError;
@@ -230,6 +238,17 @@ export function SettlementSummaryPage({
             </>
           )}
         </div>
+
+        {/* ── Approval Quorum Widget ── */}
+        {!isLoading && !statusLoading && statusData && (
+          <div className="pt-4">
+            <ApprovalStatusWidget
+              received={statusData.signatures.length}
+              required={statusData.required_approvals}
+              escrowAccountId={statusData.escrow_account_id}
+            />
+          </div>
+        )}
 
         {/* ── Fetch error ── */}
         {isError && (
