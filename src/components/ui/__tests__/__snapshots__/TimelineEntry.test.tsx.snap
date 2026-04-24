@@ -43,18 +43,20 @@ exports[`TimelineEntry > renders SDK-driven entry with transaction link 1`] = `
       class="flex items-center gap-2 flex-shrink-0"
     >
       <div
-        class="relative group inline-block"
+        class="group relative inline-flex"
       >
         <span
-          class="px-2 py-1 text-xs font-medium rounded-full text-gray-700 bg-gray-100"
+          class="status-badge status-badge--gray"
         >
-          Escrow Created
+          <span>
+            Escrow Created
+          </span>
         </span>
         <div
-          class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+          class="status-badge__tooltip-wrapper"
         >
           <div
-            class="rounded-md bg-black text-white text-xs px-2 py-1"
+            class="status-badge__tooltip"
           >
             Escrow has been created but not funded yet.
           </div>
@@ -81,18 +83,20 @@ exports[`TimelineEntry > renders SDK-driven entry with transaction link 1`] = `
         />
       </svg>
       <div
-        class="relative group inline-block"
+        class="group relative inline-flex"
       >
         <span
-          class="px-2 py-1 text-xs font-medium rounded-full text-teal-700 bg-teal-100"
+          class="status-badge status-badge--teal"
         >
-          Escrow Funded
+          <span>
+            Escrow Funded
+          </span>
         </span>
         <div
-          class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+          class="status-badge__tooltip-wrapper"
         >
           <div
-            class="rounded-md bg-black text-white text-xs px-2 py-1"
+            class="status-badge__tooltip"
           >
             Funds have been deposited into escrow.
           </div>
@@ -191,18 +195,20 @@ exports[`TimelineEntry > renders admin override entry correctly 1`] = `
       class="flex items-center gap-2 flex-shrink-0"
     >
       <div
-        class="relative group inline-block"
+        class="group relative inline-flex"
       >
         <span
-          class="px-2 py-1 text-xs font-medium rounded-full text-teal-700 bg-teal-100"
+          class="status-badge status-badge--teal"
         >
-          Escrow Funded
+          <span>
+            Escrow Funded
+          </span>
         </span>
         <div
-          class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+          class="status-badge__tooltip-wrapper"
         >
           <div
-            class="rounded-md bg-black text-white text-xs px-2 py-1"
+            class="status-badge__tooltip"
           >
             Funds have been deposited into escrow.
           </div>
@@ -229,18 +235,20 @@ exports[`TimelineEntry > renders admin override entry correctly 1`] = `
         />
       </svg>
       <div
-        class="relative group inline-block"
+        class="group relative inline-flex"
       >
         <span
-          class="px-2 py-1 text-xs font-medium rounded-full text-green-700 bg-green-100"
+          class="status-badge status-badge--green"
         >
-          Funds Released
+          <span>
+            Funds Released
+          </span>
         </span>
         <div
-          class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+          class="status-badge__tooltip-wrapper"
         >
           <div
-            class="rounded-md bg-black text-white text-xs px-2 py-1"
+            class="status-badge__tooltip"
           >
             Funds have been released successfully.
           </div>
@@ -311,18 +319,20 @@ exports[`TimelineEntry > renders regular entry correctly 1`] = `
       class="flex items-center gap-2 flex-shrink-0"
     >
       <div
-        class="relative group inline-block"
+        class="group relative inline-flex"
       >
         <span
-          class="px-2 py-1 text-xs font-medium rounded-full text-gray-700 bg-gray-100"
+          class="status-badge status-badge--gray"
         >
-          Escrow Created
+          <span>
+            Escrow Created
+          </span>
         </span>
         <div
-          class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+          class="status-badge__tooltip-wrapper"
         >
           <div
-            class="rounded-md bg-black text-white text-xs px-2 py-1"
+            class="status-badge__tooltip"
           >
             Escrow has been created but not funded yet.
           </div>

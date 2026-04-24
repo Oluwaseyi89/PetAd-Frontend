@@ -3,26 +3,27 @@ import { render, screen } from '@testing-library/react'
 import { AdoptionStatusBadge } from '../AdoptionStatusBadge'
 
 const cases = [
-  { status: 'ESCROW_CREATED', label: 'Escrow Created', textClass: 'text-gray-700' },
-  { status: 'ESCROW_FUNDED', label: 'Escrow Funded', textClass: 'text-teal-700' },
-  { status: 'SETTLEMENT_TRIGGERED', label: 'Settlement Triggered', textClass: 'text-amber-700' },
-  { status: 'CUSTODY_ACTIVE', label: 'Custody Active', textClass: 'text-green-700' },
-  { status: 'FUNDS_RELEASED', label: 'Funds Released', textClass: 'text-green-700' },
-  { status: 'COMPLETED', label: 'Completed', textClass: 'text-emerald-700' },
-  { status: 'CANCELLED', label: 'Cancelled', textClass: 'text-slate-700' },
-  { status: 'DISPUTED', label: 'Disputed', textClass: 'text-red-700' },
+  { status: 'ESCROW_CREATED', label: 'Escrow Created', variantClass: 'status-badge--gray' },
+  { status: 'ESCROW_FUNDED', label: 'Escrow Funded', variantClass: 'status-badge--teal' },
+  { status: 'SETTLEMENT_TRIGGERED', label: 'Settlement Triggered', variantClass: 'status-badge--amber' },
+  { status: 'CUSTODY_ACTIVE', label: 'Custody Active', variantClass: 'status-badge--green' },
+  { status: 'FUNDS_RELEASED', label: 'Funds Released', variantClass: 'status-badge--green' },
+  { status: 'COMPLETED', label: 'Completed', variantClass: 'status-badge--green' },
+  { status: 'CANCELLED', label: 'Cancelled', variantClass: 'status-badge--gray' },
+  { status: 'DISPUTED', label: 'Disputed', variantClass: 'status-badge--red' },
 ]
 
 describe('AdoptionStatusBadge', () => {
-  it.each(cases)('renders $status correctly', ({ status, label, textClass }) => {
+  it.each(cases)('renders $status correctly', ({ status, label, variantClass }) => {
     const { container } = render(<AdoptionStatusBadge status={status} />)
 
-    const pill = screen.getByText(label)
+    const labelNode = screen.getByText(label)
+    const pill = labelNode.closest('.status-badge') as HTMLElement | null
     expect(pill).toBeTruthy()
 
-    expect(pill.className).toContain(textClass)
+    expect(pill?.className).toContain(variantClass)
 
-    const tooltip = container.querySelector('[class*="rounded-md"]')
+    const tooltip = container.querySelector('.status-badge__tooltip')
     expect(tooltip).not.toBeNull()
 
     expect(container).toMatchSnapshot()

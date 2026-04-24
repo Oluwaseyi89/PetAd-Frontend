@@ -363,10 +363,12 @@ exports[`EscrowProgressStepper > matches snapshot for SETTLEMENT_FAILED 1`] = `
 exports[`EscrowStatusBadge > matches snapshot for AWAITING_FUNDS 1`] = `
 <DocumentFragment>
   <span
-    class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-amber-100 text-amber-800 border-amber-200"
+    class="status-badge status-badge--amber"
     data-testid="escrow-status-badge"
   >
-    Awaiting Funds
+    <span>
+      Awaiting Funds
+    </span>
   </span>
 </DocumentFragment>
 `;
@@ -374,10 +376,12 @@ exports[`EscrowStatusBadge > matches snapshot for AWAITING_FUNDS 1`] = `
 exports[`EscrowStatusBadge > matches snapshot for DISPUTED 1`] = `
 <DocumentFragment>
   <span
-    class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-rose-100 text-rose-800 border-rose-200"
+    class="status-badge status-badge--red"
     data-testid="escrow-status-badge"
   >
-    Disputed
+    <span>
+      Disputed
+    </span>
   </span>
 </DocumentFragment>
 `;
@@ -385,10 +389,12 @@ exports[`EscrowStatusBadge > matches snapshot for DISPUTED 1`] = `
 exports[`EscrowStatusBadge > matches snapshot for FUNDED 1`] = `
 <DocumentFragment>
   <span
-    class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-sky-100 text-sky-800 border-sky-200"
+    class="status-badge status-badge--blue"
     data-testid="escrow-status-badge"
   >
-    Funded
+    <span>
+      Funded
+    </span>
   </span>
 </DocumentFragment>
 `;
@@ -396,10 +402,12 @@ exports[`EscrowStatusBadge > matches snapshot for FUNDED 1`] = `
 exports[`EscrowStatusBadge > matches snapshot for IN_REVIEW 1`] = `
 <DocumentFragment>
   <span
-    class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-violet-100 text-violet-800 border-violet-200"
+    class="status-badge status-badge--teal"
     data-testid="escrow-status-badge"
   >
-    In Review
+    <span>
+      In Review
+    </span>
   </span>
 </DocumentFragment>
 `;
@@ -407,10 +415,12 @@ exports[`EscrowStatusBadge > matches snapshot for IN_REVIEW 1`] = `
 exports[`EscrowStatusBadge > matches snapshot for SETTLED 1`] = `
 <DocumentFragment>
   <span
-    class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-emerald-100 text-emerald-800 border-emerald-200"
+    class="status-badge status-badge--green"
     data-testid="escrow-status-badge"
   >
-    Settled
+    <span>
+      Settled
+    </span>
   </span>
 </DocumentFragment>
 `;
@@ -418,10 +428,12 @@ exports[`EscrowStatusBadge > matches snapshot for SETTLED 1`] = `
 exports[`EscrowStatusBadge > matches snapshot for SETTLEMENT_FAILED 1`] = `
 <DocumentFragment>
   <span
-    class="inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold bg-red-100 text-red-800 border-red-200"
+    class="status-badge status-badge--red"
     data-testid="escrow-status-badge"
   >
-    Settlement Failed
+    <span>
+      Settlement Failed
+    </span>
   </span>
 </DocumentFragment>
 `;

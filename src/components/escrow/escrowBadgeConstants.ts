@@ -1,4 +1,5 @@
 import type { EscrowStatus } from "./types";
+import type { StatusBadgeColor } from "../ui/StatusBadge";
 
 export interface EscrowStatusBadgeProps {
   status: EscrowStatus;
@@ -6,30 +7,30 @@ export interface EscrowStatusBadgeProps {
 
 export const STATUS_META: Record<
   EscrowStatus,
-  { label: string; className: string }
+  { label: string; color: StatusBadgeColor }
 > = {
   AWAITING_FUNDS: {
     label: "Awaiting Funds",
-    className: "bg-amber-100 text-amber-800 border-amber-200",
+    color: "amber",
   },
   FUNDED: {
     label: "Funded",
-    className: "bg-sky-100 text-sky-800 border-sky-200",
+    color: "blue",
   },
   IN_REVIEW: {
     label: "In Review",
-    className: "bg-violet-100 text-violet-800 border-violet-200",
+    color: "teal",
   },
   DISPUTED: {
     label: "Disputed",
-    className: "bg-rose-100 text-rose-800 border-rose-200",
+    color: "red",
   },
   SETTLED: {
     label: "Settled",
-    className: "bg-emerald-100 text-emerald-800 border-emerald-200",
+    color: "green",
   },
   SETTLEMENT_FAILED: {
     label: "Settlement Failed",
-    className: "bg-red-100 text-red-800 border-red-200",
+    color: "red",
   },
 };
