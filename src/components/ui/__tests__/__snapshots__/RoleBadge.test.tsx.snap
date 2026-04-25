@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RoleBadge > renders 'ADMIN' correctly 1`] = `
+<div>
+  <span
+    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-100 text-purple-700"
+  >
+    ADMIN
+  </span>
+</div>
+`;
+
+exports[`RoleBadge > renders 'SHELTER' correctly 1`] = `
+<div>
+  <span
+    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-teal-100 text-teal-700"
+  >
+    SHELTER
+  </span>
+</div>
+`;
+
+exports[`RoleBadge > renders 'USER' correctly 1`] = `
+<div>
+  <span
+    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700"
+  >
+    USER
+  </span>
+</div>
+`;
