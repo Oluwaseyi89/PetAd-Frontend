@@ -1,13 +1,13 @@
 import { useState, useCallback } from 'react';
 
-export function useAdoptionApprovals(_adoptionId: string) {
+export function useAdoptionApprovals() {
   const [hasDecided, setHasDecided] = useState(false);
   const [isPending, setIsPending] = useState(false);
 
   // Mocking required roles for this approval
   const requiredRoles = ['admin', 'manager', 'reviewer'];
 
-  const mutateApprovalDecision = useCallback((_payload: { decision: "APPROVED" | "REJECTED"; reason?: string }) => {
+  const mutateApprovalDecision = useCallback(() => {
     setIsPending(true);
 
     return new Promise<void>((resolve) => {
