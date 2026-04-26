@@ -57,8 +57,9 @@ export function useAdoptionList({ status }: UseAdoptionListOptions): UseAdoption
     const timer = setTimeout(() => {
       if (isMounted) {
         let filtered = MOCK_ADOPTIONS;
-        if (status.length > 0) {
-          filtered = MOCK_ADOPTIONS.filter((adoption) => status.includes(adoption.status));
+        const currentStatus = statusKey ? (statusKey.split(",") as AdoptionStatus[]) : [];
+        if (currentStatus.length > 0) {
+          filtered = MOCK_ADOPTIONS.filter((adoption) => currentStatus.includes(adoption.status));
         }
         setData(filtered);
         setIsLoading(false);
@@ -69,7 +70,7 @@ export function useAdoptionList({ status }: UseAdoptionListOptions): UseAdoption
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [status, statusKey]); // Re-run when status array changes
+  }, [statusKey]); // Re-run when status array changes
 
   return { data, isLoading, counts };
 }

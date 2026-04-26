@@ -29,7 +29,7 @@ describe('useAdoptionList', () => {
     const { result } = renderHook(() => useAdoptionList({ status: [] }));
 
     act(() => {
-      vi.advanceTimersByTime(500);
+      vi.runAllTimers();
     });
 
     expect(result.current.isLoading).toBe(false);
@@ -40,7 +40,7 @@ describe('useAdoptionList', () => {
     const { result } = renderHook(() => useAdoptionList({ status: ['DISPUTED'] }));
 
     act(() => {
-      vi.advanceTimersByTime(500);
+      vi.runAllTimers();
     });
 
     expect(result.current.isLoading).toBe(false);
@@ -54,7 +54,7 @@ describe('useAdoptionList', () => {
     const { result } = renderHook(() => useAdoptionList({ status: ['PENDING', 'REJECTED'] }));
 
     act(() => {
-      vi.advanceTimersByTime(500);
+      vi.runAllTimers();
     });
 
     expect(result.current.isLoading).toBe(false);
@@ -71,7 +71,7 @@ describe('useAdoptionList', () => {
     );
 
     act(() => {
-      vi.advanceTimersByTime(500);
+      vi.runAllTimers();
     });
     
     expect(result.current.data).toHaveLength(8);
@@ -82,7 +82,7 @@ describe('useAdoptionList', () => {
     expect(result.current.isLoading).toBe(true); // Should go back to loading
 
     act(() => {
-      vi.advanceTimersByTime(500);
+      vi.runAllTimers();
     });
 
     expect(result.current.isLoading).toBe(false);
