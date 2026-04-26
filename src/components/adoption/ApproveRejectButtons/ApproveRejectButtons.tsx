@@ -25,6 +25,7 @@ export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) 
       await mutateApprovalDecision({ decision: "APPROVED" });
       toast.success("Your approval has been recorded");
     } catch (error) {
+      console.error(error);
       toast.error("Failed to record approval");
     }
   };
