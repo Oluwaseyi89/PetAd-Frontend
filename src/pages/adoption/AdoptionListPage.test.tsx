@@ -39,7 +39,6 @@ describe('AdoptionListPage', () => {
   });
 
   const renderWithRouter = (initialRoute = '/adoptions') => {
-    let testLocation: Location;
     const renderResult = render(
       <MemoryRouter initialEntries={[initialRoute]}>
         <Routes>

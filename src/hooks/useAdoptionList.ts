@@ -48,6 +48,8 @@ export function useAdoptionList({ status }: UseAdoptionListOptions): UseAdoption
     { PENDING: 0, APPROVED: 0, REJECTED: 0, DISPUTED: 0 } as Record<AdoptionStatus, number>
   );
 
+  const statusKey = status.join(",");
+
   useEffect(() => {
     let isMounted = true;
     setIsLoading(true);
@@ -67,7 +69,7 @@ export function useAdoptionList({ status }: UseAdoptionListOptions): UseAdoption
       isMounted = false;
       clearTimeout(timer);
     };
-  }, [status.join(",")]); // Re-run when status array changes
+  }, [status, statusKey]); // Re-run when status array changes
 
   return { data, isLoading, counts };
 }
