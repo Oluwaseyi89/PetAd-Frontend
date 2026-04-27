@@ -18,7 +18,7 @@ export function useAdoptionApprovals() {
         resolve();
       }, 1000);
     });
-  }, []);
+  }, [adoptionId]);
 
   return {
     hasDecided,

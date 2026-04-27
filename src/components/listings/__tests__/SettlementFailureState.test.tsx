@@ -99,7 +99,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "user",
       isAdmin: false,
+<<<<<<< dispute-detail-page
       isUser: true, hasAccess: () => true,
+=======
+      isUser: true,
+      hasAccess: vi.fn().mockReturnValue(false),
+>>>>>>> main
     });
     renderComponent();
     expect(screen.queryByTestId("retry-settlement-btn")).toBeNull();
@@ -109,7 +114,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
     renderComponent();
     expect(screen.getByTestId("retry-settlement-btn")).toBeTruthy();
@@ -121,7 +131,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
 
     renderComponent();
@@ -143,7 +158,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
 
     renderComponent();
@@ -163,7 +183,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
 
     renderComponent();
@@ -182,7 +207,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
 
     let resolveFn!: () => void;
@@ -215,7 +245,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
     mockRetrySettlement.mockResolvedValue(undefined);
 
@@ -239,7 +274,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
     mockRetrySettlement.mockRejectedValue(
       new Error("Network error, please try again."),
@@ -265,7 +305,12 @@ describe("SettlementFailureState", () => {
     mockUseRoleGuard.mockReturnValue({
       role: "admin",
       isAdmin: true,
+<<<<<<< dispute-detail-page
       isUser: false, hasAccess: () => true,
+=======
+      isUser: false,
+      hasAccess: vi.fn().mockReturnValue(true),
+>>>>>>> main
     });
     mockRetrySettlement.mockResolvedValue(undefined);
     const onRetry = vi.fn();

@@ -27,7 +27,12 @@ export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) 
     try {
       await mutateApprovalDecision();
       toast.success("Your approval has been recorded");
+<<<<<<< dispute-detail-page
     } catch {
+=======
+    } catch (error) {
+      console.error(error);
+>>>>>>> main
       toast.error("Failed to record approval");
     }
   };
