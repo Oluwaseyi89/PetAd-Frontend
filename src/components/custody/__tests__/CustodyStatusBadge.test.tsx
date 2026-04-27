@@ -3,42 +3,43 @@ import { render, screen } from "@testing-library/react";
 import { CustodyStatusBadge } from "../CustodyStatusBadge";
 
 const cases = [
-  { status: "PENDING", label: "Pending", textClass: "text-gray-700" },
+  { status: "PENDING", label: "Pending", variantClass: "status-badge--gray" },
   {
     status: "DEPOSIT_PENDING",
     label: "Deposit Pending",
-    textClass: "text-blue-700",
+    variantClass: "status-badge--blue",
   },
   {
     status: "DEPOSIT_CONFIRMED",
     label: "Deposit Confirmed",
-    textClass: "text-teal-700",
+    variantClass: "status-badge--teal",
   },
-  { status: "ACTIVE", label: "Active", textClass: "text-green-700" },
+  { status: "ACTIVE", label: "Active", variantClass: "status-badge--green" },
   {
     status: "EXPIRING_SOON",
     label: "Expiring Soon",
-    textClass: "text-amber-700",
+    variantClass: "status-badge--amber",
   },
   {
     status: "COMPLETING",
     label: "Completing",
-    textClass: "text-amber-700",
+    variantClass: "status-badge--amber",
   },
-  { status: "COMPLETED", label: "Completed", textClass: "text-green-700" },
-  { status: "DISPUTED", label: "Disputed", textClass: "text-red-700" },
-  { status: "CANCELLED", label: "Cancelled", textClass: "text-gray-700" },
+  { status: "COMPLETED", label: "Completed", variantClass: "status-badge--green" },
+  { status: "DISPUTED", label: "Disputed", variantClass: "status-badge--red" },
+  { status: "CANCELLED", label: "Cancelled", variantClass: "status-badge--gray" },
 ] as const;
 
 describe("CustodyStatusBadge", () => {
-  it.each(cases)("renders $status correctly", ({ status, label, textClass }) => {
+  it.each(cases)("renders $status correctly", ({ status, label, variantClass }) => {
     const { container } = render(<CustodyStatusBadge status={status} />);
 
-    const pill = screen.getByText(label);
+    const labelNode = screen.getByText(label);
+    const pill = labelNode.closest(".status-badge") as HTMLElement | null;
     expect(pill).toBeTruthy();
-    expect(pill.className).toContain(textClass);
+    expect(pill?.className).toContain(variantClass);
 
-    const tooltip = container.querySelector('[class*="rounded-md"]');
+    const tooltip = container.querySelector(".status-badge__tooltip");
     expect(tooltip).not.toBeNull();
 
     expect(container).toMatchSnapshot();

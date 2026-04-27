@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+:root {
+  --status-badge-gray-bg: var(--color-gray-100, #f3f4f6);
+  --status-badge-gray-text: var(--color-gray-700, #374151);
+  --status-badge-blue-bg: var(--color-blue-100, #dbeafe);
+  --status-badge-blue-text: var(--color-blue-700, #1d4ed8);
+  --status-badge-teal-bg: var(--color-teal-100, #ccfbf1);
+  --status-badge-teal-text: var(--color-teal-700, #0f766e);
+  --status-badge-green-bg: var(--color-green-100, #dcfce7);
+  --status-badge-green-text: var(--color-green-700, #15803d);
+  --status-badge-amber-bg: var(--color-amber-100, #fef3c7);
+  --status-badge-amber-text: var(--color-amber-700, #b45309);
+  --status-badge-red-bg: var(--color-red-100, #fee2e2);
+  --status-badge-red-text: var(--color-red-700, #b91c1c);
+}
+
 @theme {
   --animate-shimmer: shimmer 1.5s infinite linear;
   @keyframes shimmer {
@@ -19,6 +34,98 @@
 
 
 @layer utilities {
+  @keyframes status-badge-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.04);
+      opacity: 0.88;
+    }
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 9999px;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .status-badge__icon {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .status-badge--gray {
+    background-color: var(--status-badge-gray-bg);
+    color: var(--status-badge-gray-text);
+  }
+
+  .status-badge--blue {
+    background-color: var(--status-badge-blue-bg);
+    color: var(--status-badge-blue-text);
+  }
+
+  .status-badge--teal {
+    background-color: var(--status-badge-teal-bg);
+    color: var(--status-badge-teal-text);
+  }
+
+  .status-badge--green {
+    background-color: var(--status-badge-green-bg);
+    color: var(--status-badge-green-text);
+  }
+
+  .status-badge--amber {
+    background-color: var(--status-badge-amber-bg);
+    color: var(--status-badge-amber-text);
+  }
+
+  .status-badge--red {
+    background-color: var(--status-badge-red-bg);
+    color: var(--status-badge-red-text);
+  }
+
+  .status-badge--pulse {
+    animation: status-badge-pulse 1.2s ease-in-out infinite;
+  }
+
+  .status-badge__tooltip-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 10;
+    margin-top: 0.5rem;
+    width: max-content;
+    max-width: 220px;
+    transform: translateX(-50%) scale(0.95);
+    opacity: 0;
+    transition: all 0.15s ease-in-out;
+    pointer-events: none;
+  }
+
+  .group:hover .status-badge__tooltip-wrapper {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+
+  .status-badge__tooltip {
+    border-radius: 0.375rem;
+    background-color: #0f2236;
+    color: #ffffff;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
   .scrollbar-minimal::-webkit-scrollbar {
     width: 4px;
   }

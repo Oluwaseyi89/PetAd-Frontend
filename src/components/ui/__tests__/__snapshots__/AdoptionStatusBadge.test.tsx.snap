@@ -3,18 +3,20 @@
 exports[`AdoptionStatusBadge > renders 'CANCELLED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-slate-700 bg-slate-100"
+      class="status-badge status-badge--gray"
     >
-      Cancelled
+      <span>
+        Cancelled
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         The adoption was cancelled before completion.
       </div>
@@ -26,18 +28,20 @@ exports[`AdoptionStatusBadge > renders 'CANCELLED' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'COMPLETED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-emerald-700 bg-emerald-100"
+      class="status-badge status-badge--green"
     >
-      Completed
+      <span>
+        Completed
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         The adoption lifecycle has been completed.
       </div>
@@ -49,18 +53,20 @@ exports[`AdoptionStatusBadge > renders 'COMPLETED' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'CUSTODY_ACTIVE' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-green-700 bg-green-100"
+      class="status-badge status-badge--green"
     >
-      Custody Active
+      <span>
+        Custody Active
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         Pet custody is currently active.
       </div>
@@ -72,18 +78,20 @@ exports[`AdoptionStatusBadge > renders 'CUSTODY_ACTIVE' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'DISPUTED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-red-700 bg-red-100"
+      class="status-badge status-badge--red"
     >
-      Disputed
+      <span>
+        Disputed
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         There is a dispute in the adoption.
       </div>
@@ -95,18 +103,20 @@ exports[`AdoptionStatusBadge > renders 'DISPUTED' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'ESCROW_CREATED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-gray-700 bg-gray-100"
+      class="status-badge status-badge--gray"
     >
-      Escrow Created
+      <span>
+        Escrow Created
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         Escrow has been created but not funded yet.
       </div>
@@ -118,18 +128,20 @@ exports[`AdoptionStatusBadge > renders 'ESCROW_CREATED' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'ESCROW_FUNDED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-teal-700 bg-teal-100"
+      class="status-badge status-badge--teal"
     >
-      Escrow Funded
+      <span>
+        Escrow Funded
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         Funds have been deposited into escrow.
       </div>
@@ -141,18 +153,20 @@ exports[`AdoptionStatusBadge > renders 'ESCROW_FUNDED' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'FUNDS_RELEASED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-green-700 bg-green-100"
+      class="status-badge status-badge--green"
     >
-      Funds Released
+      <span>
+        Funds Released
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         Funds have been released successfully.
       </div>
@@ -164,18 +178,20 @@ exports[`AdoptionStatusBadge > renders 'FUNDS_RELEASED' correctly 1`] = `
 exports[`AdoptionStatusBadge > renders 'SETTLEMENT_TRIGGERED' correctly 1`] = `
 <div>
   <div
-    class="relative group inline-block"
+    class="group relative inline-flex"
   >
     <span
-      class="px-2 py-1 text-xs font-medium rounded-full text-amber-700 bg-amber-100"
+      class="status-badge status-badge--amber"
     >
-      Settlement Triggered
+      <span>
+        Settlement Triggered
+      </span>
     </span>
     <div
-      class="absolute left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block"
+      class="status-badge__tooltip-wrapper"
     >
       <div
-        class="rounded-md bg-black text-white text-xs px-2 py-1"
+        class="status-badge__tooltip"
       >
         Settlement process has started.
       </div>
