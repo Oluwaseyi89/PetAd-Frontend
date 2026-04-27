@@ -27,7 +27,7 @@ import DisputeDetailPage from "./pages/DisputeDetailPage";
 function App() {
   return (
     <Routes>
-      {/* Auth Routes - No Navbar/Footer */}
+      {/* Auth Routes - No Navbar/Footer*/}
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
