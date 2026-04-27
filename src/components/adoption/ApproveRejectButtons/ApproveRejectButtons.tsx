@@ -12,9 +12,6 @@ export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) 
   const { hasAccess } = useRoleGuard();
   const { hasDecided, requiredRoles, mutateApprovalDecision, isPending } = useAdoptionApprovals(adoptionId);
 
-  // Temporary fix to avoid unused variable while it's only a prop needed for the tests
-  console.log("Rendering ApproveRejectButtons for adoption ID:", adoptionId);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Render the component ONLY IF:
