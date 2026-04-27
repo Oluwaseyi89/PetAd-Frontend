@@ -23,6 +23,7 @@ import CustodyTimelinePage from "./pages/CustodyTimelinePage";
 import AdminApprovalQueuePage from "./pages/AdminApprovalQueuePage";
 import AdminDisputeListPage from "./pages/AdminDisputeListPage";
 import DisputeDetailPage from "./pages/DisputeDetailPage";
+import MyDisputesPage from "./pages/MyDisputesPage";
 
 function App() {
   return (
@@ -67,6 +68,11 @@ function App() {
         <Route
           path="/admin/disputes"
           element={<AdminDisputeListPage />}
+        />
+
+        <Route
+          path="/disputes"
+          element={<MyDisputesPage />}
         />
 
         <Route
