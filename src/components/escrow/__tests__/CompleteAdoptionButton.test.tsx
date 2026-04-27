@@ -26,7 +26,7 @@ beforeEach(() => {
     role: "admin",
     isAdmin: true,
     isUser: false,
-    hasAccess: () => true,
+    hasAccess: vi.fn().mockReturnValue(true),
   });
 
   vi.mocked(useMutateCompleteAdoption).mockReturnValue({
@@ -50,7 +50,7 @@ describe("CompleteAdoptionButton", () => {
       role: "user",
       isAdmin: false,
       isUser: true,
-      hasAccess: () => true,
+      hasAccess: vi.fn().mockReturnValue(false),
     });
     const { container } = render(<CompleteAdoptionButton {...defaultProps} />);
     expect(container.firstChild).toBeNull();

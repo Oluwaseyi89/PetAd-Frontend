@@ -10,7 +10,7 @@ export interface ApproveRejectButtonsProps {
 
 export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) {
   const { hasAccess } = useRoleGuard();
-  const { hasDecided, requiredRoles, mutateApprovalDecision, isPending } = useAdoptionApprovals();
+  const { hasDecided, requiredRoles, mutateApprovalDecision, isPending } = useAdoptionApprovals(adoptionId);
 
   // Temporary fix to avoid unused variable while it's only a prop needed for the tests
   console.log("Rendering ApproveRejectButtons for adoption ID:", adoptionId);
@@ -27,7 +27,8 @@ export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) 
     try {
       await mutateApprovalDecision();
       toast.success("Your approval has been recorded");
-    } catch {
+    } catch (error) {
+      console.error(error);
       toast.error("Failed to record approval");
     }
   };
