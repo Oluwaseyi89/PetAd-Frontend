@@ -117,7 +117,7 @@ describe('AdminDocumentReviewPanel', () => {
       );
 
       // The component shows skeleton placeholders when loading
-      expect(screen.queryByTestId('skeleton')).toBeInTheDocument();
+      expect(screen.getAllByTestId('skeleton').length).toBeGreaterThan(0);
     });
   });
 
@@ -204,11 +204,11 @@ describe('AdminDocumentReviewPanel', () => {
       expect(screen.getByRole('button', { name: /Approve/i })).toBeInTheDocument();
     });
 
-    it('calls reviewDocument with APPROVED status when approve is clicked', async () => {
-      const mockReviewDocument = vi.fn();
+    it('calls reviewDocumentAsync with APPROVED status when approve is clicked', async () => {
+      const mockReviewDocumentAsync = vi.fn().mockResolvedValue(undefined);
       mockUseMutateReviewDocument.mockReturnValue({
-        reviewDocument: mockReviewDocument,
-        reviewDocumentAsync: vi.fn(),
+        reviewDocument: vi.fn(),
+        reviewDocumentAsync: mockReviewDocumentAsync,
         isPending: false,
         isError: false,
         error: null,
@@ -224,9 +224,8 @@ describe('AdminDocumentReviewPanel', () => {
       fireEvent.click(screen.getByRole('button', { name: /Approve/i }));
 
       await waitFor(() => {
-        expect(mockReviewDocument).toHaveBeenCalledWith(
-          { documentId: 'doc-001', status: 'APPROVED' },
-          expect.any(Object)
+        expect(mockReviewDocumentAsync).toHaveBeenCalledWith(
+          { documentId: 'doc-001', status: 'APPROVED' }
         );
       });
     });
@@ -259,11 +258,11 @@ describe('AdminDocumentReviewPanel', () => {
       expect(screen.getByRole('button', { name: /Cancel/i })).toBeInTheDocument();
     });
 
-    it('calls reviewDocument with REJECTED status and reason when confirmed', async () => {
-      const mockReviewDocument = vi.fn();
+    it('calls reviewDocumentAsync with REJECTED status and reason when confirmed', async () => {
+      const mockReviewDocumentAsync = vi.fn().mockResolvedValue(undefined);
       mockUseMutateReviewDocument.mockReturnValue({
-        reviewDocument: mockReviewDocument,
-        reviewDocumentAsync: vi.fn(),
+        reviewDocument: vi.fn(),
+        reviewDocumentAsync: mockReviewDocumentAsync,
         isPending: false,
         isError: false,
         error: null,
@@ -287,9 +286,8 @@ describe('AdminDocumentReviewPanel', () => {
       fireEvent.click(screen.getByRole('button', { name: /Confirm Rejection/i }));
 
       await waitFor(() => {
-        expect(mockReviewDocument).toHaveBeenCalledWith(
-          { documentId: 'doc-001', status: 'REJECTED', reason: 'Document is blurry' },
-          expect.any(Object)
+        expect(mockReviewDocumentAsync).toHaveBeenCalledWith(
+          { documentId: 'doc-001', status: 'REJECTED', reason: 'Document is blurry' }
         );
       });
     });
