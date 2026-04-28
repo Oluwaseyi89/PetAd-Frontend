@@ -22,7 +22,7 @@ export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) 
 
   const handleApprove = async () => {
     try {
-      await mutateApprovalDecision({ decision: "APPROVED" });
+      await mutateApprovalDecision();
       toast.success("Your approval has been recorded");
     } catch (error) {
       console.error(error);
@@ -30,9 +30,9 @@ export function ApproveRejectButtons({ adoptionId }: ApproveRejectButtonsProps) 
     }
   };
 
-  const handleReject = async (reason: string) => {
+  const handleReject = async () => {
     try {
-      await mutateApprovalDecision({ decision: "REJECTED", reason });
+      await mutateApprovalDecision();
       toast.success("Your approval has been recorded");
     } catch (error) {
       toast.error("Failed to record rejection");

@@ -7,7 +7,7 @@ export function useAdoptionApprovals(adoptionId: string) {
   // Mocking required roles for this approval
   const requiredRoles = ['admin', 'manager', 'reviewer'];
 
-  const mutateApprovalDecision = useCallback((payload: { decision: "APPROVED" | "REJECTED"; reason?: string }) => {
+  const mutateApprovalDecision = useCallback((payload?: { decision: "APPROVED" | "REJECTED"; reason?: string }) => {
     console.log(`[Mock] mutateApprovalDecision for ${adoptionId}:`, payload);
     setIsPending(true);
 

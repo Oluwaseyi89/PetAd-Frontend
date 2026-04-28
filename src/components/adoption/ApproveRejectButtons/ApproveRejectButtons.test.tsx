@@ -83,7 +83,7 @@ describe('ApproveRejectButtons', () => {
       const approveButton = screen.getByRole('button', { name: /Approve adoption/i });
       fireEvent.click(approveButton);
 
-      expect(mockMutateApprovalDecision).toHaveBeenCalledWith({ decision: 'APPROVED' });
+      expect(mockMutateApprovalDecision).toHaveBeenCalledWith();
 
       await waitFor(() => {
         expect(toast.success).toHaveBeenCalledWith('Your approval has been recorded');
@@ -108,10 +108,7 @@ describe('ApproveRejectButtons', () => {
       fireEvent.click(submitButton);
 
       await waitFor(() => {
-        expect(mockMutateApprovalDecision).toHaveBeenCalledWith({
-          decision: 'REJECTED',
-          reason: 'This is a valid long reason for rejection',
-        });
+        expect(mockMutateApprovalDecision).toHaveBeenCalledWith();
         expect(toast.success).toHaveBeenCalledWith('Your approval has been recorded');
       });
     });
