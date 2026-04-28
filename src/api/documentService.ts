@@ -179,5 +179,16 @@ export const documentService = {
 
             xhr.send(formData);
         });
+    },
+
+    /**
+     * Review a document - approve or reject with reason
+     * PATCH /documents/:id/review
+     */
+    reviewDocument: async (
+        documentId: string,
+        data: { status: 'APPROVED' | 'REJECTED'; reason?: string }
+    ): Promise<Document> => {
+        return apiClient.patch(`/documents/${documentId}/review`, data);
     }
 };
