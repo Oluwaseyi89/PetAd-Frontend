@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Check, X, FileText, FileImage, AlertCircle } from 'lucide-react';
+import { Check, X, FileText, FileImage } from 'lucide-react';
 import { useRoleGuard } from '../../hooks/useRoleGuard';
 import { useMutateReviewDocument } from '../../hooks/useMutateReviewDocument';
 import { DocumentIntegrityBadge } from './DocumentIntegrityBadge';
