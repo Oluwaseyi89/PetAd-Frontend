@@ -187,30 +187,26 @@ export function AdminDocumentReviewPanel({
   const totalCount = documents.length;
   const allApproved = totalCount > 0 && approvedCount === totalCount;
 
-  const handleApprove = (documentId: string) => {
-    reviewDocument(
-      { documentId, status: 'APPROVED' },
-      {
-        onSuccess: () => {
-          onDocumentReviewed?.(
-            documents.find((d) => d.id === documentId)!
-          );
-        },
-      }
-    );
+  const handleApprove = async (documentId: string) => {
+    try {
+      await reviewDocumentAsync({ documentId, status: 'APPROVED' });
+      onDocumentReviewed?.(
+        documents.find((d) => d.id === documentId)!
+      );
+    } catch (error) {
+      console.error('Failed to approve document:', error);
+    }
   };
 
-  const handleReject = (documentId: string, reason: string) => {
-    reviewDocument(
-      { documentId, status: 'REJECTED', reason },
-      {
-        onSuccess: () => {
-          onDocumentReviewed?.(
-            documents.find((d) => d.id === documentId)!
-          );
-        },
-      }
-    );
+  const handleReject = async (documentId: string, reason: string) => {
+    try {
+      await reviewDocumentAsync({ documentId, status: 'REJECTED', reason });
+      onDocumentReviewed?.(
+        documents.find((d) => d.id === documentId)!
+      );
+    } catch (error) {
+      console.error('Failed to reject document:', error);
+    }
   };
 
   if (isLoading) {
