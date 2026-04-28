@@ -174,7 +174,7 @@ export function AdminDocumentReviewPanel({
   onDocumentReviewed,
 }: AdminDocumentReviewPanelProps) {
   const { isAdmin } = useRoleGuard();
-  const { reviewDocument, isPending } = useMutateReviewDocument(adoptionId);
+  const { reviewDocumentAsync, isPending } = useMutateReviewDocument(adoptionId);
 
   // Only render for ADMIN role
   if (!isAdmin) {
